@@ -96,16 +96,6 @@ NAN_METHOD(wiringPiSPISetupMode) {
   const std::vector<int> validChannels = { 0, 1 };
   const std::vector<int> validModes = { 0, 1, 2, 3 };
   
-  if (find_int(channel, validChannels)) {
-    if (find_int(mode, validModes)) {
-      int res = ::wiringPiSPISetupMode(channel, speed, mode);
-      info.GetReturnValue().Set(res);
-    } else {
-      //throw mode error
-    } 
-  } else { 
-    // throw channel error
-  }
 }
 
 // Func : void wiringPiSPIClose(const int fd)
