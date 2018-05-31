@@ -4,7 +4,7 @@ rm ./install.log 2>/dev/null 1>&2
 
 dpkg-query -s wiringpi >> install.log
 
-PKG_OK=$(dpkg-query -W --showformat='${Status}\n' wiringpi|grep "install ok installed")
+PKG_OK=$(command -V gpio)
 echo Checking for wiringpi: $PKG_OK
 if [ "" == "$PKG_OK" ]; then
   echo "Could not find wiringpi package - try 'sudo apt-get install wiringpi'"
